@@ -78,38 +78,3 @@ class ApplicationController < Sinatra::Base
 
 end
 
-
-  get '/account' do
-    @user = User.find(session[:user_id])
-    erb :account
-  end
-
-
-  get "/login" do
-    erb :login
-  end
-
-  post "/login" do
-    ##your code here
-  end
-
-  get "/failure" do
-    erb :failure
-  end
-
-  get "/logout" do
-    session.clear
-    redirect "/"
-  end
-
-  helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      User.find(session[:user_id])
-    end
-  end
-
-end
